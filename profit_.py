@@ -21,11 +21,12 @@ def profit(array, bool, reverse, logging):
             fiat /= array[i + int(not bool)]
         i += 2
     return (fiat - 1)*100
-def print_array(array):
+
+def print_result(array):
     if array[0] > array[1]:
         usd = profit(array, False, True, False)
         rur = profit(array, True, True, False)
-        if usd < rur: #USD < RUR
+        if usd < rur: #USD < RUR and ascending array
             print('Начинаем с RUR')
             profit(array, True, True, True)
             print("Прибыль: %d%%" % rur)
@@ -36,7 +37,7 @@ def print_array(array):
     else:
         rur = profit(array, False, False, False)
         usd = profit(array, True, False, False)
-        if usd < rur: #USD < RUR
+        if usd < rur: #USD < RUR and descending array
             print('Начинаем с USD')
             profit(array, False, False, True)
             print("Прибыль: %d%%" % rur)
@@ -45,15 +46,17 @@ def print_array(array):
             profit(array, True, False, True)
             print("Прибыль: %d%%" % usd)
 
-
 if __name__ == '__main__':
     date_array, array_currencies = [], []
     line = ['','']
-    while line[0] != 'quit':
-        line = input().split('-')
-        if line[0] != 'quit':
-            date_array.append(line[0])
-            array_currencies.append(float(line[1]))
-    print_array(array_filtering(array_currencies, date_array))
+    try:
+        while line[0] != 'quit':
+            line = input().split('-')
+            if line[0] != 'quit':
+                date_array.append(line[0])
+                array_currencies.append(float(line[1]))
+        print_result(array_filtering(array_currencies, date_array))
+    except:
+        print("ERROR INPUT")
     
 
