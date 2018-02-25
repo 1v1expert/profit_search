@@ -1,4 +1,4 @@
-#profit_search - task from RosEuroBank
+# profit_search - task from rosevrobank
 ***
 `Python version 3.x and higher`
 ### Условие:
