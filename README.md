@@ -1,5 +1,4 @@
 # profit_search - task from rosevrobank
-***
 `Python version 3.x and higher`
 ### Условие:
 Дан массив из N записей (дата, курс российского рубля к доллару США
